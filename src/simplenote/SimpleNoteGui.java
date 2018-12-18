@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 public class SimpleNoteGui implements ActionListener {
@@ -34,6 +35,7 @@ public class SimpleNoteGui implements ActionListener {
 		JButton openButton = new JButton("Open");
 		JButton saveButton = new JButton("Save");
 		JButton clearButton = new JButton("Clear");
+		JScrollPane scrollPane = new JScrollPane(textArea);
 		
 		buttonsPanel.setLayout(new FlowLayout());
 		buttonsPanel.add(openButton);
@@ -47,7 +49,7 @@ public class SimpleNoteGui implements ActionListener {
 		clearButton.addActionListener(this);
 		clearButton.setActionCommand("clear");
 		
-		frame.getContentPane().add(BorderLayout.CENTER, textArea);
+		frame.getContentPane().add(BorderLayout.CENTER, scrollPane);
 		frame.getContentPane().add(BorderLayout.SOUTH, buttonsPanel);
 		
 		textArea.requestFocus();
