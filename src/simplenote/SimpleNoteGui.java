@@ -8,7 +8,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.PrintWriter;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -82,9 +81,8 @@ public class SimpleNoteGui implements ActionListener {
 	}
 
 	private void save(File file) {
-		try (PrintWriter outputStream = new PrintWriter(new FileWriter(file+".txt"))){
-			String tmp = textArea.getText();
-			outputStream.write(tmp);
+		try (FileWriter outputStream = new FileWriter(file+".txt")){
+			textArea.write(outputStream);
 		} catch (Exception ex) {
 			textArea.setText(ex.toString());
 		}
